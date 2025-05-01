@@ -1,0 +1,20 @@
+meta {
+  name: Task Detail
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{api_url}}/task/:task_id/run/:task_run_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  task_run_id: 01968709-c79d-bf6f-0ca3-5e00d81f8139
+  task_id: 01967c12-c83d-922a-d4ee-09167f06ea51
+}
+
+headers {
+  Authorization: Bearer <token>
+}

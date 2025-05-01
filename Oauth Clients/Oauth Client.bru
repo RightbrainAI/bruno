@@ -1,0 +1,19 @@
+meta {
+  name: Oauth Client
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api_url}}/oauth_client/:oauth_client_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  oauth_client_id: 01966cbd-4355-36f2-0d8f-18fe629da9b1
+}
+
+headers {
+  Authorization: Bearer <token>
+}

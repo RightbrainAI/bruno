@@ -1,0 +1,15 @@
+meta {
+  name: Oauth Clients
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_url}}/oauth_client
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer <token>
+}

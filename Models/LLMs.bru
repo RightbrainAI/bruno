@@ -1,0 +1,15 @@
+meta {
+  name: LLMs
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_url}}/model
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer <token>
+}

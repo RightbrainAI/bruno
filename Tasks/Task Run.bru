@@ -1,0 +1,27 @@
+meta {
+  name: Task Run
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{api_url}}/task/:task_id/run
+  body: json
+  auth: inherit
+}
+
+params:path {
+  task_id: 01967c12-c83d-922a-d4ee-09167f06ea51
+}
+
+headers {
+  Authorization: Bearer <token>
+}
+
+body:json {
+  {
+    "task_input": {
+      "nutrition_description": "a triple burger king cheese burger "
+    }
+  }
+}

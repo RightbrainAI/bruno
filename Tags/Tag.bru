@@ -1,0 +1,20 @@
+meta {
+  name: Tag
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api_url}}/:entity_type/tag/:tag_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  tag_id: 
+  entity_type: task
+}
+
+headers {
+  Authorization: Bearer <token>
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Task Forwarder
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api_url}}/task_forwarder/:task_forwarder_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  task_forwarder_id: 01968cc3-2f11-c567-772a-03ddbb148341
+}
+
+headers {
+  Authorization: Bearer <token>
+}

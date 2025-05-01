@@ -1,0 +1,15 @@
+meta {
+  name: Task Forwarders
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_url}}/task_forwarder
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer <token>
+}

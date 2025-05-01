@@ -1,0 +1,29 @@
+meta {
+  name: Create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api_url}}/task_forwarder
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer <token>
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Webhook Endpoint",
+    "description": "Send all Task output to this API endpoint to ensure real-time updates of all Task Runs.",
+    "config": {
+      "destination_url": "https://eoalydnvgieppd9.m.pipedream.net"
+    },
+    "config_sensitive": {
+      "signing_key": "sdkjhsfd2sdfkj3223.23rh"
+    }
+  }
+}

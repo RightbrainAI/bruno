@@ -1,0 +1,19 @@
+meta {
+  name: Token Report
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{api_url}}/task/:task_id/token_report
+  body: none
+  auth: inherit
+}
+
+params:path {
+  task_id: 01967c12-c83d-922a-d4ee-09167f06ea51
+}
+
+headers {
+  Authorization: Bearer <token>
+}

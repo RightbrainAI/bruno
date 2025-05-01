@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api_url}}/:entity_type/tag/:tag_id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  tag_id: 
+  entity_type: {{entity_type}}
+}
+
+headers {
+  Authorization: Bearer <token>
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "staging",
+    "entity_type": "{{entity_type}}",
+    "parent_id": "{{task_id}}"
+  }
+}
+
+vars:pre-request {
+  task_id: 01967c12-c83d-922a-d4ee-09167f06ea51
+  entity_type: task
+}

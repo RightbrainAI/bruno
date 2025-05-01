@@ -1,0 +1,11 @@
+vars {
+  token_url: {{process.env.RB_OAUTH2_URL}}{{process.env.RB_OAUTH2_ACCESS_TOKEN_PATH}}
+  auth_url: {{process.env.RB_OAUTH2_URL}}{{process.env.RB_OAUTH2_AUTH_PATH}}
+  client_id: {{process.env.RB_CLIENT_ID}}
+  org_id: {{process.env.RB_ORG_ID}}
+  project_id: {{process.env.RB_PROJECT_ID}}
+  api_host: {{process.env.RB_API_URL}}
+}
+vars:secret [
+  client_secret
+]
