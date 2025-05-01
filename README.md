@@ -2,7 +2,7 @@
 
 [<img src="https://fetch.usebruno.com/button.svg" alt="Fetch in Bruno" style="width: 130px; height: 30px;" width="128" height="32">](https://fetch.usebruno.com?url=git%40github.com%3ARightbrainAI%2Fbruno.git "target=_blank rel=noopener noreferrer")
 
-This repository contains a [Bruno](https://www.usebruno.com/) collection for interacting with the [Rightbrain API](https://docs.rightbrain.ai/) API. [Rightbrain](https://rightbrain.ai/) allows you to build and deploy LLM features rapidly by turning prompts into production-ready APIs.
+This repository contains a [Bruno](https://www.usebruno.com/) collection for interacting with the [Rightbrain API](https://docs.rightbrain.ai/). [Rightbrain](https://rightbrain.ai/) allows you to build and deploy LLM features rapidly by turning prompts into production-ready APIs.
 
 ## Getting Started
 
