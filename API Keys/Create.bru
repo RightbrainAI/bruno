@@ -1,0 +1,17 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_url}}/api_key
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Make.com"
+  }
+}

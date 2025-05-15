@@ -1,0 +1,15 @@
+meta {
+  name: Revoke
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api_url}}/api_key/:api_key_id/revoke
+  body: none
+  auth: inherit
+}
+
+params:path {
+  api_key_id: 0196aa23-5f66-a813-2c05-b5b835b20e94
+}

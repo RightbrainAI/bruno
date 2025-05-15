@@ -1,0 +1,26 @@
+meta {
+  name: Task Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_url}}/task
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name":"Image Generator",
+      "enabled":"true",
+      "system_prompt":"You are an expert catoonist",
+      "user_prompt":"You are an expert cartoonist who specialises in highly detailed coloured pencil sketch style illustrations. Produce a high quality image of {topic}",
+      "llm_model_id":"{{imageModelId}}",
+      "image_required": false,
+      "llm_config": {
+          "temperature":0.6
+      },
+      "output_modality":"image"
+  }
+}
