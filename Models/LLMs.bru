@@ -10,6 +10,21 @@ get {
   auth: inherit
 }
 
+params:query {
+  ~include_retired: true
+}
+
 headers {
   Authorization: Bearer <token>
+}
+
+vars:post-response {
+  imageModelId: 
+}
+
+script:post-response {
+  const imageModel = res.getBody().find(model => model.supports_image_output === true);
+  if (imageModel) {
+    bru.setVar('imageModelId', imageModel.id);
+  }
 }
