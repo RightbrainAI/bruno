@@ -1,7 +1,7 @@
 meta {
-  name: Create
+  name: Create Parent
   type: http
-  seq: 3
+  seq: 4
 }
 
 post {
@@ -16,6 +16,11 @@ params:path {
 
 body:json {
   {
-    "name": "staging"
+    "name": "staging",
+    "parent_id": "{{tag_id}}"
   }
+}
+
+vars:pre-request {
+  tag_id: 0196d46a-381a-51fd-6606-789170907ea2
 }

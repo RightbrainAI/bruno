@@ -1,7 +1,7 @@
 meta {
-  name: Task Run
+  name: Task Run Direct
   type: http
-  seq: 8
+  seq: 4
 }
 
 post {
@@ -14,10 +14,14 @@ params:path {
   task_id: 0196d322-4b44-bb6c-567b-189ee2cf443e
 }
 
+headers {
+  Accept: image/
+}
+
 body:json {
   {
     "task_input": {
-      "nutrition_description": "a triple burger king cheese burger "
+      "topic": "a happy alpaca jumping"
     }
   }
 }

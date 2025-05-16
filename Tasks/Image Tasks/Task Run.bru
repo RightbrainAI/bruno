@@ -21,3 +21,9 @@ body:json {
     }
   }
 }
+
+script:post-response {
+  bru.setVar('taskId', res.getBody().task_id);
+  bru.setVar('runId', res.getBody().id);
+  bru.setVar('imageName', res.getBody().response.image_name);
+}

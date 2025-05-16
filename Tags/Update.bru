@@ -1,7 +1,7 @@
 meta {
   name: Update
   type: http
-  seq: 4
+  seq: 5
 }
 
 post {
@@ -11,24 +11,12 @@ post {
 }
 
 params:path {
-  tag_id: 
-  entity_type: {{entity_type}}
-}
-
-headers {
-  Authorization: Bearer <token>
-  Content-Type: application/json
+  tag_id: 0196d46a-381a-51fd-6606-789170907ea2
+  entity_type: task
 }
 
 body:json {
   {
-    "name": "staging",
-    "entity_type": "{{entity_type}}",
-    "parent_id": "{{task_id}}"
+    "name": "production"
   }
-}
-
-vars:pre-request {
-  task_id: 01967c12-c83d-922a-d4ee-09167f06ea51
-  entity_type: task
 }
