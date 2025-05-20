@@ -1,0 +1,26 @@
+meta {
+  name: Task Share
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{api_url}}/task/:task_id/share
+  body: json
+  auth: inherit
+}
+
+params:path {
+  task_id: 01967cc5-7a7d-98e5-538b-aaa1535d0a97
+}
+
+body:json {
+  {
+    "title": "Awesome synonymiser",
+    "description": "When you've lost that thesaurus"
+  }
+}
+
+script:post-response {
+  bru.setVar('shareUrl', res.getBody().share_url);
+}
