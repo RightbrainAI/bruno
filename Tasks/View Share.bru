@@ -1,0 +1,22 @@
+meta {
+  name: View Share
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{shareUrl}}
+  body: none
+  auth: none
+}
+
+headers {
+  ~Accept: application/yaml
+}
+
+body:json {
+  {
+    "title": "Awesome synonymiser",
+    "description": "When you've lost that thesaurus"
+  }
+}
