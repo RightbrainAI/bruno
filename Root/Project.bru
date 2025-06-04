@@ -1,0 +1,15 @@
+meta {
+  name: Project
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_url}}
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+  bru.setVar('publicRoutingKey', res.getBody().public_routing_key);
+}

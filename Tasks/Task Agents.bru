@@ -1,0 +1,21 @@
+meta {
+  name: Task Agents
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{api_url}}/task/:task_id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  task_id: 0196620d-ac18-dfbf-24a3-0a384d46d1e8
+}
+
+body:json {
+  {
+    "exposed_to_agents": true
+  }
+}

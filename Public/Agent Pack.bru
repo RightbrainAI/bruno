@@ -1,0 +1,15 @@
+meta {
+  name: Agent Pack
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{public_url}}/{{publicRoutingKey}}/llms/task/:task_id
+  body: none
+  auth: none
+}
+
+params:path {
+  task_id: 0196620d-ac18-dfbf-24a3-0a384d46d1e8
+}
