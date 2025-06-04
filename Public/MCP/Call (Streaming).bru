@@ -1,0 +1,29 @@
+meta {
+  name: Call (Streaming)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{public_url}}/{{publicRoutingKey}}/mcp
+  body: json
+  auth: none
+}
+
+headers {
+  X-MCP-Accept-Streaming: text/event-stream
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/call",
+    "params": {
+      "name": "text_classificatiomn",
+      "arguments": {
+        "word": "assuage"
+      }
+    }
+  }
+}
