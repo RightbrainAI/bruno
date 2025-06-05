@@ -1,0 +1,27 @@
+meta {
+  name: Task Run Tag
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api_url}}/task/:task_id/run?revision_tag=stagingenv
+  body: json
+  auth: inherit
+}
+
+params:query {
+  revision_tag: stagingenv
+}
+
+params:path {
+  task_id: 0196620d-ac18-dfbf-24a3-0a384d46d1e8
+}
+
+body:json {
+  {
+    "task_input": {
+      "word": "assuage"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Tag Entity Remove
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api_url}}/:entity_type/tag/:tag_id/remove
+  body: json
+  auth: inherit
+}
+
+params:path {
+  tag_id: 01973f20-53df-1e22-9f6c-3ad83296e8e9
+  entity_type: task_revision
+}
+
+body:json {
+  {
+    "entities": [
+      "{{revision_id}}"
+    ]
+  }
+}
+
+vars:pre-request {
+  revision_id: 0196b3e0-4997-a01d-d134-447f6026bfc9
+}

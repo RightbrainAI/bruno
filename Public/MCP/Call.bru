@@ -1,0 +1,25 @@
+meta {
+  name: Call
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{public_url}}/{{publicRoutingKey}}/mcp
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/call",
+    "params": {
+      "name": "synonym_fetcher",
+      "arguments": {
+        "word": "assuage"
+      }
+    }
+  }
+}

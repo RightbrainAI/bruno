@@ -1,13 +1,17 @@
 meta {
-  name: Task
+  name: Usage Report
   type: http
   seq: 2
 }
 
 get {
-  url: {{api_url}}/task/:task_id
+  url: {{api_url}}/task/:task_id/usage_report
   body: none
   auth: inherit
+}
+
+params:query {
+  ~errors_only: true
 }
 
 params:path {

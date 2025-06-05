@@ -1,13 +1,13 @@
 meta {
-  name: Task
+  name: Agent Pack
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
-  url: {{api_url}}/task/:task_id
+  url: {{public_url}}/{{publicRoutingKey}}/llms/task/:task_id
   body: none
-  auth: inherit
+  auth: none
 }
 
 params:path {
