@@ -11,5 +11,10 @@ get {
 }
 
 params:path {
-  mcp_server_id: 0198797d-d451-9fdc-85a1-9afa4cf082e9
+  mcp_server_id: 01987a74-b7ab-a27a-f147-1870ad5b8e9d
+}
+
+script:post-response {
+  bru.setVar('gatewayShortId', res.getBody().short_id);
+  
 }

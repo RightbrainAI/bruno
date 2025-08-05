@@ -1,11 +1,40 @@
 meta {
   name: Metadata Discovery
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
-  url: https://sc66gahu.gateway.leftbrain.me/.well-known/oauth-authorization-server
+  url: {{proxyUrl}}/.well-known/oauth-authorization-server
   body: none
-  auth: inherit
+  auth: none
+}
+
+script:pre-request {
+  const gatewayShortId = bru.getVar("gatewayShortId");
+  const gatewayUrl = bru.getEnvVar("gateway_url"); // "https://gateway.leftbrain.me" or "https://gateway.rightbrain.ai"
+  
+  // Replace "gateway" with "{gatewayShortId}.gateway"
+  const proxyUrl = gatewayUrl.replace("gateway", `${gatewayShortId}.gateway`);
+  
+  bru.setVar('proxyUrl', proxyUrl);
+}
+
+script:post-response {
+  const responseBody = res.getBody();
+  const proxyUrl = bru.getVar("proxyUrl");
+  const originalIssuer = responseBody.issuer;
+  
+  // Replace issuer in endpoints with proxy URL
+  const registerEndpoint = responseBody.registration_endpoint.replace(originalIssuer, proxyUrl);
+  const tokenEndpoint = responseBody.token_endpoint.replace(originalIssuer, proxyUrl);
+  const authEndpoint = responseBody.authorization_endpoint.replace(originalIssuer, proxyUrl);
+  
+  // Set variables with proxy URLs
+  bru.setVar('registerEndpoint', registerEndpoint);
+  bru.setVar('tokenEndpoint', tokenEndpoint);
+  bru.setVar('authEndpoint', authEndpoint);
+  
+  // Handle scopes
+  bru.setVar("scopes", responseBody.scopes_supported.join(" "));
 }

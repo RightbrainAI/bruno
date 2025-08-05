@@ -1,22 +1,41 @@
 meta {
   name: Initialise
   type: http
-  seq: 1
+  seq: 5
 }
 
 post {
-  url: https://0197929f-82aa-6e1c-dd93-3f8644f3ca5c.gateway.leftbrain.me/mcp
+  url: {{proxyUrl}}/mcp
   body: json
   auth: none
 }
 
 headers {
   Content-Type: application/json
-  MCP-Version: 2025-03-26
+  Authorization: Bearer {{accessToken}}
   Accept: application/json, text/event-stream
-  ~Authorization: Bearer
 }
 
 body:json {
-  {"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{"sampling":{},"roots":{"listChanged":true}},"clientInfo":{"name":"mcp-inspector","version":"0.14.2"}},"jsonrpc":"2.0","id":0}
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2024-11-05",
+      "capabilities": {},
+      "clientInfo": {
+        "name": "Bruno MCP Client",
+        "version": "1.0.0"
+      }
+    }
+  }
+}
+
+script:post-response {
+  const sessionId = res.headers['mcp-session-id'];
+  
+  if (sessionId) {
+    bru.setVar("sessionId", sessionId);
+  }
 }
