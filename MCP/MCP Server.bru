@@ -1,0 +1,15 @@
+meta {
+  name: MCP Server
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api_url}}/mcp_server/:mcp_server_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  mcp_server_id: 0198797d-d451-9fdc-85a1-9afa4cf082e9
+}

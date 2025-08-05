@@ -1,0 +1,23 @@
+meta {
+  name: Create Public PKCE
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api_url}}/oauth_client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Mobile App",
+    "Description": "This is the awesome Splat Frog app",
+    "grant_types": ["authorization_code", "refresh_token"],
+    "redirect_uris": ["https://oauthdebugger.com/debug"],
+    "pkce_required": true,
+    "pkce_challenge_method": "S256",
+    "token_endpoint_auth_method": "none"
+  }
+}

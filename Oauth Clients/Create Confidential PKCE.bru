@@ -1,0 +1,22 @@
+meta {
+  name: Create Confidential PKCE
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api_url}}/oauth_client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Server App with PKCE",
+    "grant_types": ["authorization_code", "refresh_token"],
+    "redirect_uris": ["https://app.example.com/callback"],
+    "pkce_required": true,
+    "pkce_challenge_method": "S256",
+    "token_endpoint_auth_method": "client_secret_basic"
+  }
+}

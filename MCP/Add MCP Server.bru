@@ -1,0 +1,19 @@
+meta {
+  name: Add MCP Server
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api_url}}/mcp_server
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "sentry-prod",
+    "description": "Sentry Prod",
+    "url": "https://mcp.sentry.dev/"
+  }
+}
