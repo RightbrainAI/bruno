@@ -1,0 +1,53 @@
+meta {
+  name: PKCE Auth
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{authEndpoint}}?response_type=code&client_id={{clientId}}&redirect_uri={{redirectUris[0]}}&scope={{scopes}}&code_challenge={{codeChallenge}}&code_challenge_method=plain
+  body: none
+  auth: none
+}
+
+params:query {
+  response_type: code
+  client_id: {{clientId}}
+  redirect_uri: {{redirectUris[0]}}
+  scope: {{scopes}}
+  code_challenge: {{codeChallenge}}
+  code_challenge_method: plain
+}
+
+script:pre-request {
+  // Generate random code verifier without crypto API
+  function generateCodeVerifier() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~';
+    let result = '';
+    for (let i = 0; i < 43; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+  
+  // Generate and set PKCE values
+  function setupPKCE() {
+    const codeVerifier = generateCodeVerifier();
+    // Using 'plain' method since crypto API not available in Bruno
+    const codeChallenge = codeVerifier;
+    
+    // Set Bruno variables
+    bru.setVar("codeVerifier", codeVerifier);
+    bru.setVar("codeChallenge", codeChallenge);
+  }
+  
+  setupPKCE();
+}
+
+script:post-response {
+  bru.setVar('mcpRegister', res.getBody().registration_endpoint);
+}
+
+docs {
+  Run the generated URL in your browser
+}

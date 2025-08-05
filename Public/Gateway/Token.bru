@@ -1,0 +1,37 @@
+meta {
+  name: Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{tokenEndpoint}}
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  code_verifier: {{codeVerifier}}
+  redirect_uri: {{redirectUris[0]}}
+  code: {{authCode}}
+  grant_type: authorization_code
+  client_id: {{clientId}}
+  client_secret: {{clientSecret}}
+}
+
+script:pre-request {
+  const newAuthCode = "3334773%3AKeIO7FWoThxsrTgH%3AporlOsqhHBwCJXDem47CCBPspTebL9s4";
+  
+  // Auto decode and set
+  const decodedCode = decodeURIComponent(newAuthCode);
+  bru.setVar("authCode", decodedCode);
+}
+
+script:post-response {
+  bru.setVar('accessToken', res.getBody().access_token);
+  bru.setVar('refreshToken', res.getBody().refresh_token);
+}

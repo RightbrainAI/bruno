@@ -1,0 +1,27 @@
+meta {
+  name: Tools
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{proxyUrl}}/mcp
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json, text/event-stream
+  Authorization: Bearer {{accessToken}}
+  Mcp-Session-Id: {{sessionId}}
+  Mcp-Protocol-Version: 2024-11-05
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/list"
+  }
+}
