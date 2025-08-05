@@ -1,0 +1,21 @@
+meta {
+  name: Task Update
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api_url}}/task/:task_id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  task_id: 01973f67-018f-1442-d37d-6f77221d0e05
+}
+
+body:json {
+  {
+    "description": "Generate creative marketing taglines based on product/service descriptions."
+  }
+}
