@@ -1,0 +1,29 @@
+meta {
+  name: Task Run
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api_url}}/task/:task_id/run
+  body: json
+  auth: inherit
+}
+
+params:path {
+  task_id: 01995343-b3f0-37d7-76ce-a22a2054193d
+}
+
+body:json {
+  {
+    "task_input": {
+      "topic": "a triple burger king cheese burger"
+    }
+  }
+}
+
+script:post-response {
+  bru.setVar('taskId', res.getBody().task_id);
+  bru.setVar('runId', res.getBody().id);
+  bru.setVar('audioName', res.getBody().response.audio_name);
+}

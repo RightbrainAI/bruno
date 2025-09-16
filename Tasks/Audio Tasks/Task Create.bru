@@ -1,0 +1,26 @@
+meta {
+  name: Task Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api_url}}/task
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name":"Audio Generator v1",
+      "enabled":"true",
+      "system_prompt":"You are an expert comedian",
+      "user_prompt":"You are an expert comedian who can instantly create a funny joke about {topic}",
+      "llm_model_id":"f8f7e063-efc1-407b-b238-5927c3716512",
+      "image_required": false,
+      "llm_config": {
+          "temperature":0.6
+      },
+      "output_modality":"audio"
+  }
+}
