@@ -1,0 +1,21 @@
+meta {
+  name: Task Audio
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{api_url}}/task/:task_id/run/:run_id/file/:image_name
+  body: none
+  auth: inherit
+}
+
+params:path {
+  image_name: {{audioName}}
+  run_id: {{runId}}
+  task_id: {{taskId}}
+}
+
+headers {
+  Authorization: Bearer <token>
+}
